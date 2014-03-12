@@ -1,0 +1,71 @@
+{{!< default}}
+
+<!-- Blog Header -->
+<div class="blog-head" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+	<div class="head-info">
+		<div class="row">
+			<section class="centered twelve columns">
+				<article class="row">
+					<div>
+				<!-- Blog Title and URL --><h1 class="title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+					</div>
+				</article>
+				
+				<article class="row">
+					<div>
+				<!-- Blog Logo --><img class="circle image" src="{{@blog.logo}}" />
+					</div>
+				</article>
+				
+				<article class="row">
+					<div>
+					<!-- Blog Description --><h4 class="subtitle">{{@blog.description}}</h4>
+					</div>
+				</article>
+				
+				<article class="row">
+					</br>
+					<!-- Facebook --><div class="primary btn"><a href="#" target="_blank"><i class="icon-facebook"></i></a></div>
+					<!-- Twitter --><div class="primary btn"><a href="#" target="_blank"><i class="icon-twitter"></i></a></div>
+					<!-- Linked In --><div class="primary btn"><a href="#" target="_blank"><i class="icon-linkedin"></i></a></div>
+					<!-- Google Plus --><div class="primary btn"><a href="#" target="_blank"><i class="icon-gplus"></i></a></div>
+					<!-- Blogs RSS Feed --><div class="primary btn"><a href="{{@blog.url}}/rss/" target="_blank"><i class="icon-rss"></i></a></div>
+				</article>
+				
+				<article class="row">
+				<!-- Scroll To Post List --><a href="#" class="skip btn primary skiplink circle scroll" gumby-goto=".blog-body"><h2><i class="icon-down-open-big"></i></h2></a>
+				</article>
+				
+			</section>
+		</div>
+	</div>
+</div>
+<!-- End of Blog Header -->	
+<!-- Blog Body with Post Lists -->
+	<div class="blog-body">
+		<div class="row">
+			<section class="centered ten columns">
+				{{#foreach posts}}
+				<article class="row">
+				<div class="post-list {{post_class}}" id="post-{{id}}">
+				<h2 class="post-title"><i class="icon-doc-text"></i><a href="{{url}}">{{title}}</a></h2>
+				<p class="author-info"><i class="icon-user"></i> At <b>{{date format='YYYY-MM-DD'}}</b> On <b>{{#if tags}} #{{#tags}}name{{/tags}} {{/if}}</b></p>
+				<div class="post-content">{{content words="35"}}</div>
+				<div class="medium primary btn icon-right entypo icon-right-circled"><a href="{{url}}">Read More</a></div>
+				</div>
+				</article>
+				{{/foreach}}
+			</section>
+		</div>
+	</div>
+<!-- End Of Blog Body -->
+<!-- Pagination Starts -->
+	<div class="row">
+		<section class="centered twelve columns">
+			<article class="row">
+			{{pagination}}
+			</article>
+		</section>
+	</div>	
+	
+<!-- End Of Pagination -->

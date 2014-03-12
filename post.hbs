@@ -1,0 +1,73 @@
+{{!< default}}
+
+</div>
+	<!-- Post Page Header -->
+	<div class="post-head">
+		<div class="row">
+			<section class="centered twelve columns">
+				<article class="row">
+					<div>
+						<h1 class="title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+					</div>
+				</article>
+					
+				<article class="row">
+					<div>
+						<h4 class="subtitle">{{@blog.description}}</h4>
+					</div>
+				</article>
+								
+			</section>
+		</div>
+	</div>
+	<!-- Post Page Header Ends  -->
+	<!-- Post Body -->
+	<div class="blog-body">
+		<div class="row">
+			<section class="centered nine columns">
+			{{#post}}
+				<article class="row">
+				<div class="post-list {{post_class}}" id="post-{{id}}">
+				<h2 class="post-title"><i class="icon-doc-text"></i><a href="{{url}}">{{title}}</a></h2>
+				<p class="author-info"><i class="icon-user"></i> At <b>{{date format='YYYY-MM-DD'}}</b>{{#if tags}} On <b># {{#tags}}name{{/tags}} {{/if}}</b></p>
+				<div class="post-content">{{content}}</div>
+				</div>
+				</article>
+			
+			</section>
+		</div>
+	</div>
+	<!-- Post Body Ends -->
+{{#if author}}
+		<!-- Post Author Information -->
+		<div class="author-bio" >
+		
+			<div class="row">
+				<section class="two columns">	
+					<article class="row">
+						<img class="circle image small" src="{{author.image}}" />
+					</article>
+				</section>
+				<section class="ten columns">
+					<article class="row">
+						<h4 class="about-author"> About {{author.name}}</a></h4>
+					</article>	
+					<article class="row">
+						<p>{{author.bio}}<p/>
+					</article>
+					<article class="row">
+						<b>Share This Post:</b>
+						<div class="info btn"><a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="icon-facebook"></i></a></div>
+						<div class="info btn"><a href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="icon-twitter"></i></a></div>
+						<div class="info btn"><a href="https://plus.google.com/share?url={{url absolute="true"}}"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="icon-gplus"></i></a></div>
+					</article>
+				</section>
+			</div>
+		</div>
+		<!-- End of Post Author Information -->
+{{/if}}
+
+{{/post}}
